@@ -1,7 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using Sistema_de_Gestión_de_Inventarios.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<InventarioDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 

@@ -1,4 +1,4 @@
-﻿namespace Sistema_de_Gestión_de_Inventarios.Models
+namespace Sistema_de_Gestión_de_Inventarios.Models
 {
     public class DetalleOrden
     {
