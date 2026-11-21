@@ -1,0 +1,41 @@
+@model IEnumerable<Sistema_de_Gestión_de_Inventarios.Models.Proveedor>
+
+@{
+    ViewData["Title"] = "Proveedores";
+}
+
+<h1>Proveedores</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Nuevo proveedor</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Activo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.Direccion</td>
+                <td>@item.Telefono</td>
+                <td>@item.Email</td>
+                <td>@item.Activo</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProveedorId">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProveedorId">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProveedorId">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

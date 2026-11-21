@@ -1,0 +1,29 @@
+@model Sistema_de_Gestión_de_Inventarios.Models.Proveedor
+
+@{
+    ViewData["Title"] = "Detalles del proveedor";
+}
+
+<h1>Detalles</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">Nombre</dt>
+    <dd class="col-sm-9">@Model.Nombre</dd>
+
+    <dt class="col-sm-3">Dirección</dt>
+    <dd class="col-sm-9">@Model.Direccion</dd>
+
+    <dt class="col-sm-3">Teléfono</dt>
+    <dd class="col-sm-9">@Model.Telefono</dd>
+
+    <dt class="col-sm-3">Email</dt>
+    <dd class="col-sm-9">@Model.Email</dd>
+
+    <dt class="col-sm-3">Activo</dt>
+    <dd class="col-sm-9">@Model.Activo</dd>
+</dl>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProveedorId" class="btn btn-primary">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>
