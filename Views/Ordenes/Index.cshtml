@@ -1,0 +1,38 @@
+@model IEnumerable<Sistema_de_Gestión_de_Inventarios.Models.OrdenCompra>
+
+@{
+    ViewData["Title"] = "Órdenes de compra";
+}
+
+<h1>Órdenes de compra</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Nueva orden</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Proveedor</th>
+            <th>Estado</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Fecha.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@item.Proveedor?.Nombre</td>
+                <td>@item.Estado</td>
+                <td>@item.Total.ToString("C")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.OrdenId">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.OrdenId">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,26 @@
+@model Sistema_de_Gestión_de_Inventarios.Models.OrdenCompra
+
+@{
+    ViewData["Title"] = "Eliminar orden";
+}
+
+<h1>Eliminar</h1>
+
+<h3>¿Seguro que deseas eliminar esta orden?</h3>
+
+<dl class="row">
+    <dt class="col-sm-3">Proveedor</dt>
+    <dd class="col-sm-9">@Model.Proveedor?.Nombre</dd>
+
+    <dt class="col-sm-3">Fecha</dt>
+    <dd class="col-sm-9">@Model.Fecha.ToString("dd/MM/yyyy HH:mm")</dd>
+
+    <dt class="col-sm-3">Total</dt>
+    <dd class="col-sm-9">@Model.Total.ToString("C")</dd>
+</dl>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="OrdenId" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

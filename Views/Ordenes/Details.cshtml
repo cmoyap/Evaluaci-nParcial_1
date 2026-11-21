@@ -1,0 +1,48 @@
+@model Sistema_de_Gestión_de_Inventarios.Models.OrdenCompra
+
+@{
+    ViewData["Title"] = "Detalles de la orden";
+}
+
+<h1>Detalles</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">Proveedor</dt>
+    <dd class="col-sm-9">@Model.Proveedor?.Nombre</dd>
+
+    <dt class="col-sm-3">Fecha</dt>
+    <dd class="col-sm-9">@Model.Fecha.ToString("dd/MM/yyyy HH:mm")</dd>
+
+    <dt class="col-sm-3">Estado</dt>
+    <dd class="col-sm-9">@Model.Estado</dd>
+
+    <dt class="col-sm-3">Total</dt>
+    <dd class="col-sm-9">@Model.Total.ToString("C")</dd>
+</dl>
+
+<h4>Detalle</h4>
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio unitario</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var d in Model.Detalles)
+        {
+            <tr>
+                <td>@d.Producto?.Nombre</td>
+                <td>@d.Cantidad</td>
+                <td>@d.PrecioUnitario.ToString("C")</td>
+                <td>@((d.Cantidad * d.PrecioUnitario).ToString("C"))</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>
